@@ -9088,11 +9088,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\SoftServe\\TodoApi\\TodoApi.Tests\\TodoApi.Tests.csproj",
+      "projectUniqueName": "D:\\SoftServe\\TodoItemsApi\\TodoApi.Tests\\TodoApi.Tests.csproj",
       "projectName": "TodoApi.Tests",
-      "projectPath": "D:\\SoftServe\\TodoApi\\TodoApi.Tests\\TodoApi.Tests.csproj",
+      "projectPath": "D:\\SoftServe\\TodoItemsApi\\TodoApi.Tests\\TodoApi.Tests.csproj",
       "packagesPath": "C:\\Users\\ЛИЗА\\.nuget\\packages\\",
-      "outputPath": "D:\\SoftServe\\TodoApi\\TodoApi.Tests\\obj\\",
+      "outputPath": "D:\\SoftServe\\TodoItemsApi\\TodoApi.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -9111,8 +9111,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "D:\\SoftServe\\TodoApi\\TodoApi\\TodoApi.csproj": {
-              "projectPath": "D:\\SoftServe\\TodoApi\\TodoApi\\TodoApi.csproj"
+            "D:\\SoftServe\\TodoItemsApi\\TodoApi\\TodoApi.csproj": {
+              "projectPath": "D:\\SoftServe\\TodoItemsApi\\TodoApi\\TodoApi.csproj"
             }
           }
         }

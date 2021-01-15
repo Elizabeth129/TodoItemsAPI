@@ -11,7 +11,10 @@ namespace TodoApi.DataRepository
         public TodoContext(DbContextOptions<TodoContext> options) : base(options)
         { 
         }
+        public TodoContext() : base()
+        {
 
+        }
         public DbSet<TodoItem> TodoItems { get; set; }
     }
 }

@@ -11,9 +11,9 @@ namespace TodoApi.BL
     public class TodoBL
     {
         private IEntityRepository<TodoItem> _TodoRepository { get; set; }
-        public TodoBL(IEntityRepository<TodoItem> todoRepository)
+        public TodoBL(TodoContext context)
         {
-            _TodoRepository = todoRepository;
+            _TodoRepository = new EntityRepository<TodoItem>(context);
         }
         public async Task<IEnumerable<TodoItemDTO>> GetTodoItems()
         {

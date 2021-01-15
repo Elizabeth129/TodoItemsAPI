@@ -34,7 +34,7 @@ namespace TodoApi
             services.AddDbContext<TodoContext>(opt =>
                opt.UseInMemoryDatabase("TodoList"));
             services.AddControllers();
-            
+            services.AddScoped<IEntityRepository<TodoItem>, EntityRepository<TodoItem>>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo

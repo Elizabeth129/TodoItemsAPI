@@ -15,11 +15,11 @@ namespace TodoApi.Controllers
     [ApiController]
     public class TodoItemsController : ControllerBase
     {
-        private readonly TodoBL _todoBL;
+        private TodoBL _todoBL;
 
-        public TodoItemsController(TodoBL todoBL)
+        public TodoItemsController(TodoContext context)
         {
-            _todoBL = todoBL;
+            _todoBL = new TodoBL(context);
         }
      
         // GET: api/TodoItems
