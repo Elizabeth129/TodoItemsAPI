@@ -318,7 +318,6 @@ D:\SoftServe\TodoItemsApi\TodoApi\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netc
 D:\SoftServe\TodoItemsApi\TodoApi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
 D:\SoftServe\TodoItemsApi\TodoApi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 D:\SoftServe\TodoItemsApi\TodoApi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-D:\SoftServe\TodoItemsApi\TodoApi\obj\Debug\netcoreapp3.1\TodoApi.csprojAssemblyReference.cache
 D:\SoftServe\TodoItemsApi\TodoApi\obj\Debug\netcoreapp3.1\staticwebassets\TodoApi.StaticWebAssets.Manifest.cache
 D:\SoftServe\TodoItemsApi\TodoApi\obj\Debug\netcoreapp3.1\staticwebassets\TodoApi.StaticWebAssets.xml
 D:\SoftServe\TodoItemsApi\TodoApi\obj\Debug\netcoreapp3.1\TodoApi.MvcApplicationPartsAssemblyInfo.cs

@@ -26,9 +26,7 @@ namespace TodoApi.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<TodoItemDTO>>> GetTodoItems()
         {
-            /*return await _context.TodoItems
-                .Select(x => ItemToDTO(x))
-                .ToListAsync();*/
+            
             IEnumerable<TodoItemDTO> todoItems;
             try
             {
@@ -55,15 +53,19 @@ namespace TodoApi.Controllers
             return todoItem;
         }
   
-        // PUT: api/TodoItems/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-       // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateTodoItem(long id, TodoItemDTO todoItemDTO)
+        // PUT: api/TodoItems
+        [HttpPut]
+        public async Task<IActionResult> UpdateTodoItem(TodoItemDTO todoItemDTO)
         {
-            await _todoBL.Update(id, todoItemDTO);
-
-            return NoContent();
+            try
+            {
+                await _todoBL.Update(todoItemDTO);
+            } 
+            catch
+            {
+                return BadRequest();
+            }
+            return Ok(await _todoBL.GetTodoItemById(todoItemDTO.Id));
         }
 
           // POST: api/TodoItems
@@ -95,7 +97,7 @@ namespace TodoApi.Controllers
               return CreatedAtAction(
                   nameof(GetTodoItem),
                   new { id = todoItem.Id },
-                  ItemToDTO(todoItem));
+                  MapperTodo.ItemToDTO(todoItem));
           }
 
 
@@ -113,12 +115,6 @@ namespace TodoApi.Controllers
           }
 
         
-        private static TodoItemDTO ItemToDTO(TodoItem todoItem) =>
-        new TodoItemDTO
-        {
-            Id = todoItem.Id,
-            Name = todoItem.Name,
-            IsComplete = todoItem.IsComplete
-        };
+
     }
 }

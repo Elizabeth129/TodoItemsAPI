@@ -15,27 +15,22 @@ namespace TodoApi.BL
         {
             _TodoRepository = new EntityRepository<TodoItem>(context);
         }
+        public TodoBL(IEntityRepository<TodoItem> entityRepository)
+        {
+            _TodoRepository = entityRepository;
+        }
         public async Task<IEnumerable<TodoItemDTO>> GetTodoItems()
         {
-            return  await Task.FromResult(_TodoRepository.GetAllTodoItems().Select(x => ItemToDTO(x)).ToList());
+            return  await Task.FromResult(_TodoRepository.GetAllTodoItems().Select(x => MapperTodo.ItemToDTO(x)).ToList());
         }
         public async Task<TodoItemDTO> GetTodoItemById(long id)
         {
-            return await Task.FromResult(_TodoRepository.GetAllTodoItems().Select(x => ItemToDTO(x)).ToList().Where(x => x.Id == id).FirstOrDefault());
+            return await Task.FromResult(MapperTodo.ItemToDTO(_TodoRepository.GetTodoItemById(id)));
         }
-        public async Task Update(long id, TodoItemDTO todoItemDTO)
+        public async Task Update(TodoItemDTO todoItemDTO)
         {
-            if (id != todoItemDTO.Id)
-            {
-                throw new ArgumentException("Error Id"); 
-            }
-
-            var todoItem = await Task.FromResult(_TodoRepository.GetAllTodoItems().Select(x => ItemToDTO(x)).ToList().Where(x => x.Id == id).FirstOrDefault());
-            if (todoItem == null)
-            {
-                throw new ArgumentException("Error Id"); ;
-            }
-            _TodoRepository.Update(new TodoItem { Id = id, IsComplete = todoItemDTO.IsComplete, Name = todoItemDTO.Name });
+            
+            _TodoRepository.Update(new TodoItem { Id = todoItemDTO.Id, IsComplete = todoItemDTO.IsComplete, Name = todoItemDTO.Name });
 
         }
         public async Task<TodoItem> Create(TodoItemDTO todoItemDTO)
@@ -57,12 +52,6 @@ namespace TodoApi.BL
             }
             _TodoRepository.Delete(todoItem);
         }
-        private static TodoItemDTO ItemToDTO(TodoItem todoItem) =>
-        new TodoItemDTO
-        {
-            Id = todoItem.Id,
-            Name = todoItem.Name,
-            IsComplete = todoItem.IsComplete
-        };
+        
     }
 }

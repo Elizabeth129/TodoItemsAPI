@@ -45,7 +45,7 @@ namespace TodoApi.Tests
         public async Task TestGetItemById()
         {
             //Act
-            todoRepository.Setup(a => a.GetAllTodoItems()).Returns(todoItems.AsQueryable());
+            todoRepository.Setup(a => a.GetTodoItemById(It.IsAny<long>())).Returns(todoItems.ElementAt(1));
 
             //Arrange
             var todoBL = new TodoBL(todoRepository.Object);
@@ -61,12 +61,12 @@ namespace TodoApi.Tests
         public async Task UpdateTodoItem()
         {
             //Act
-            todoRepository.Setup(a => a.GetAllTodoItems()).Returns(todoItems.AsQueryable());
+            todoRepository.Setup(a => a.GetTodoItemById(It.IsAny<long>())).Returns(todoItems.ElementAt(2));
             todoRepository.Setup(a => a.Update(It.IsAny<TodoItem>()));
             //Arrange
             var todoBL = new TodoBL(todoRepository.Object);
             TodoItemDTO item = new TodoItemDTO { Id = 3, Name = "todo31", IsComplete = true };
-            await todoBL.Update(3, item);
+            await todoBL.Update(item);
 
             //Assert
             todoRepository.Verify(x => x.Update(It.Is<TodoItem>(b => b.Name == item.Name && b.Id == item.Id && b.IsComplete == item.IsComplete)), Times.Once);

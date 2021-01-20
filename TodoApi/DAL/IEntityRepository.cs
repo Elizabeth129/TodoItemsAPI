@@ -11,5 +11,6 @@ namespace TodoApi.DAL
         void Update(T entity);
         void Delete(T entity);
         IEnumerable<T> GetAllTodoItems();
+        T GetTodoItemById(long id);
     }
 }

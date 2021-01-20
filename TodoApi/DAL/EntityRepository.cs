@@ -28,6 +28,11 @@ namespace TodoApi.DAL
             return _dbSet;
         }
 
+        public T GetTodoItemById(long id)
+        {
+            return _dbSet.Find(id);
+        }
+
         public virtual void Insert(T entity)
         {
             _dbSet.Add(entity);

@@ -57,7 +57,7 @@ function updateItem() {
         name: document.getElementById('edit-name').value.trim()
     };
 
-    fetch(`${uri}/${itemId}`, {
+    fetch(uri , {
         method: 'PUT',
         headers: {
             'Accept': 'application/json',
